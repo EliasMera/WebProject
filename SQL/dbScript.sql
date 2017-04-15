@@ -23,6 +23,7 @@ CREATE TABLE uploadedImages(
     mercado VARCHAR(50) ,
     pool VARCHAR(50) ,
     descripcion VARCHAR(300),
-    imagen VARCHAR(50)
+    imagen VARCHAR(50),
+    owner VARCHAR(50),
 
 );

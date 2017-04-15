@@ -23,6 +23,10 @@
 
 
 	function updateDB(){
+
+		session_start();
+
+		$username= $_SESSION['username'];
 		$price = $_POST["price"];
 		$picture = $_POST["picture"];
 		$rent = $_POST["rent"];
@@ -34,7 +38,7 @@
 		$pool = $_POST["pool"];
 		$state = $_POST["state"];
 		
-		$result = updateFunction($price, $picture, $rent, $sell, $house, $dept, $school, $market, $pool, $state);
+		$result = updateFunction($price, $picture, $rent, $sell, $house, $dept, $school, $market, $pool, $state, $username);
 
 		if ($result["result"] == "ok"){   
 			echo json_encode(array("result" => "ok"));

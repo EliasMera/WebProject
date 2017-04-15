@@ -9,7 +9,8 @@ $(document).ready(function (e) {
                 contentType: "application/x-www-form-urlencoded",
 
                 success: (jsonReply) => {
-                    window.location.replace("index.php");
+                    window.location.replace("login.html");
+                    console.log("ya se armo");
                 },
                 error: (errorMessage) => {
                     console.log(errorMessage.result);

@@ -1,6 +1,34 @@
 var picture;
 
 $(document).ready(function (e) {
+
+
+    var sess ;
+    var jsonSession = {
+        "action" : "checkSession"
+    }
+
+    $.ajax({
+            url: "PHP/appLayer.php",
+            type: "POST",
+            data: jsonSession,
+            dataType: "json",
+            contentType: "application/x-www-form-urlencoded",
+            success: function(jsonResponse){
+                console.log("successs");
+                sess = 1;
+            },
+            error: function(errorMessage){
+                console.log("failed");
+                //window.location.replace("Login.html")
+                
+                alert("Error please log in");
+                window.location.replace("Login.html").delay(800);
+
+            }
+
+    });
+
     $("#uploadimage").on('submit', (function (e) {
         e.preventDefault();
         $("#message").empty();
