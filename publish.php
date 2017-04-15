@@ -52,6 +52,24 @@
 
 	<table  id="filter" align="center">
         <tr>
+            <th>Tittle</th>
+            <td>
+            <textarea id="textBoxTitle" name="textBoxTitle" cols="20" rows="5"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <th>Location</th>
+            <td>
+            <textarea id="textBoxDirection" name="textBoxDirection" cols="20" rows="5"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>
+            <textarea id="textBoxDescription" name="textBoxDescription" cols="20" rows="5"></textarea>
+            </td>
+        </tr>
+        <tr>
             <th>State</th>
             <td>
                 <div>

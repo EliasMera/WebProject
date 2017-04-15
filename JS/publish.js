@@ -71,8 +71,14 @@ $(document).ready(function (e) {
                     "market" : ($("#market").is(":checked"))? "Y" : "N",
                     "pool" : ($("#pool").is(":checked"))? "Y" : "N",
                     "price" : $("#price").val(),
-                    "ustate" : $('input[name=Estado]:checked').val()
+                    "ustate" : $('input[name=Estado]:checked').val(),
+                    "title" : $("#textBoxTitle").val(),
+                    "direction" : $("#textBoxDirection").val(),
+                    "description" : $("#textBoxDescription").val()
+
                 }
+                console.log($("#textBoxTitle").val());
+                if($("#textBoxTitle").val() && $("#textBoxDirection").val() && $("#textBoxDescription").val()){
                 $.ajax({
                     url: "PHP/appLayer.php",
                     type: "POST",
@@ -87,6 +93,10 @@ $(document).ready(function (e) {
                         console.log("failed");
                     }
                 });
+                }
+                else{
+                    alert("Error, please fill in all the information");                }
+
             }
         });
     }));
