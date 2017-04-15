@@ -1,0 +1,40 @@
+ul#menu {
+    align-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #E1ECF0;
+    overflow: hidden;
+    display:inline-block;
+}
+
+ul#menu li{
+    float: left;
+    padding: 20px;
+}
+
+ul#menu li:hover, ul#menu li.selected {
+    background-color: #999;
+    color: white;
+    cursor: pointer;
+}
+
+ul#search{
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #E1ECF0;
+    overflow: hidden;
+    display:inline-block;
+
+}
+
+ul#search li{
+    float: left;
+    padding: 20px;
+}
+
+table, th, td {
+    border: 1px solid blue;
+}

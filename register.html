@@ -1,0 +1,68 @@
+<html>
+<head>
+    <title> Login </title>
+    <link href="CSS/styles.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="JS/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="JS/register.js"></script>
+    <script type="text/javascript" src="JS/menu.js"></script>
+</head>
+<body>
+    <header>
+        <span>
+            <img align="left" width="200" height="40" src="Images/logo.png" alt="Logo" />
+        </span>
+
+        <div>
+            <ul id="menu">
+                <li>Index</li>
+                <li>Login</li>
+                <li>Register</li>
+                <li>Publish</li>
+                <li>About</li>
+                <li>Profile</li>
+            </ul>
+            <ul id=search>
+                <li><input type="text" id="searchBar" size="40" name="search" placeholder="Search.."></li>
+            </ul>
+
+            <span id="logUser">
+                hola mundo
+            </span>
+
+        </div>
+    </header>
+
+    <!-- Registration Section-->
+    <fieldset>
+        <legend> New account registry. </legend>
+        <br /> User Name <br /><input id="userName" class="formElement" type="text" /> <br />
+        <br /> First Name <br /><input id="userFName" class="formElement" type="text" /> <br />
+        <br /> Last Name <br /> <input id="userLName" class="formElement" type="text" /> <br />
+        <br /> Email <br /><input id="userEmail" class="formElement" type="text" /> <br />
+        <br /> Password: <br /><input id="userPassword" class="formElement" type="password"><br />
+        <br /> Password confirmation: <br /><input id="userPasswordConfirmation" class="formElement" type="password"><br />
+
+        <br /> Gender <br />
+        <div>
+            <input id="genderMale" type="radio" name="radio1" checked="checked" />
+            <span>Male</span>
+        </div>
+
+        <div>
+            <input id="genderFemale" type="radio" name="radio1" class="checkbox" />
+            <span>Female</span>
+        </div>
+
+        <br /> State <br />
+        <select id="userState">
+            <option value="x"> Select a state...</option>
+            <option value="NuevoLeon"> Nuevo Leon      </option>
+            <option value="Coahuila"> Coahuila    </option>
+
+        </select> <br />
+
+        <br />
+        <input id="registerButton" class="formElement" type="submit" value="Register" />
+    </fieldset>
+</body>
+</html>
