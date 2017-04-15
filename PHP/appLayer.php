@@ -17,10 +17,33 @@
 						break;
 		case "upload" : uploadImage();
 						break;
+		case "updateEntry" : updateDB();
+						break;
 	}
 
 
-	
+	function updateDB(){
+		$price = $_POST["price"];
+		$picture = $_POST["picture"];
+		$rent = $_POST["rent"];
+		$sell = $_POST["sell"];
+		$house = $_POST["house"];
+		$dept = $_POST["dept"];
+		$school = $_POST["school"];
+		$market = $_POST["market"];
+		$pool = $_POST["pool"];
+		$state = $_POST["state"];
+		
+		$result = updateFunction($price, $picture, $rent, $sell, $house, $dept, $school, $market, $pool, $state);
+
+		if ($result["result"] == "ok"){   
+			echo json_encode(array("result" => "ok"));
+		}	
+		else{
+			header('HTTP/1.1 500' . $result["status"]);
+			die($result["status"]);
+		}
+	}
 
 	function decrypt($password){
 		$key = pack('H*', "bcb04b7e103a05afe34763051cef08bc55abe029fdebae5e1d417e2ffb2a00a3");

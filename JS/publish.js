@@ -1,3 +1,5 @@
+var picture;
+
 $(document).ready(function (e) {
     $("#uploadimage").on('submit', (function (e) {
         e.preventDefault();
@@ -12,8 +14,33 @@ $(document).ready(function (e) {
             processData: false,        // To send DOMDocument or non processed data file it is set to false
             success: function (data)   // A function to be called if request succeeds
             {
-                $('#loading').hide();
-                $("#message").html(data);
+                picture = data.result;
+                var jsonSession = {
+                    "action" : "updateEntry",
+                    "picture" : picture,
+                    "rent" : ($("#rent").is(":checked"))? "Y" : "N",
+                    "sell" : ($("#sell").is(":checked"))? "Y" : "N",
+                    "house" : ($("#house").is(":checked"))? "Y" : "N",
+                    "dept" : ($("#dept").is(":checked"))? "Y" : "N",
+                    "school" : ($("#school").is(":checked"))? "Y" : "N",
+                    "market" : ($("#market").is(":checked"))? "Y" : "N",
+                    "pool" : ($("#pool").is(":checked"))? "Y" : "N",
+                    "price" : $("#price").val(),
+                    "state" : $('input[name=Estado]:checked').val()
+                }
+                $.ajax({
+                    url: "PHP/appLayer.php",
+                    type: "POST",
+                    data: jsonSession,
+                    dataType: "json",
+                    contentType: "application/x-www-form-urlencoded",
+                    success: function(data){
+                        alert("ya se armo");
+                    },
+                    error: function(errorMessage){
+                        console.log("failed");
+                    }
+                });
             }
         });
     }));

@@ -64,8 +64,8 @@
             <th>Type of operation</th>
             <td>
                 <div>
-                <input type="checkbox" class="check" name="Ope" value="Renta">For Rent<br>
-                <input type="checkbox" class="check" name="Ope" value="Venta">For Sell<br>
+                <input id="rent" type="checkbox" class="check" name="Ope" value="Renta">For Rent<br>
+                <input id="sell" type="checkbox" class="check" name="Ope" value="Venta">For Sell<br>
                 </div>
             </td>
         </tr>
@@ -73,8 +73,8 @@
             <th>Type Property</th>
             <td>
                 <div>
-                <input type="checkbox" class="check" name="TypeProperty" value="House">House<br>
-                <input type="checkbox" class="check" name="TypeProperty" value="Department">Department<br>
+                <input id="house" type="checkbox" class="check" name="TypeProperty" value="House">House<br>
+                <input id="dept" type="checkbox" class="check" name="TypeProperty" value="Department">Department<br>
                 </div>
             </td>
         </tr>
@@ -90,9 +90,9 @@
             <th>General</th>
             <td>
                 <div>
-                <input type="checkbox" class="check" name="school" value="School">Near Schools<br>
-                <input type="checkbox" class="check" name="market" value="Market">Near Market<br>
-                <input type="checkbox" class="check" name="pool" value="Pool">Pool<br>
+                <input id="school" type="checkbox" class="check" name="school" value="School">Near Schools<br>
+                <input id="market" type="checkbox" class="check" name="market" value="Market">Near Market<br>
+                <input id="pool" type="checkbox" class="check" name="pool" value="Pool">Pool<br>
                 </div>
             </td>
         </tr>

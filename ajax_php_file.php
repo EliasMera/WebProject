@@ -29,11 +29,8 @@ $target_dir = "C:\MAMP\htdocs\WebProject\Images\\";
     $uniqIdName = uniqid();
     //var to store on files.
     $target_file_upload_files = $target_dir.$uniqIdName.".".$imageFileType;
-    echo $target_file_upload_files;
-    echo "AAAAAAAAAAAA";
     //var to upload in db.
     $target_file_upload_db = $uniqIdName.".".$imageFileType;
-    echo $target_file_upload_db;
     //data to insert db
     
     /*$data = Array (
@@ -79,7 +76,7 @@ $target_dir = "C:\MAMP\htdocs\WebProject\Images\\";
 
             $result = $conn->query($sql);
             $conn -> close();
-            return array("result" => "OKO");
+            echo json_encode(array("result" => $target_file_upload_db));
         } else {
             echo "Sorry, there was an error uploading your file.";
         }

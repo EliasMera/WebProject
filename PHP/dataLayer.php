@@ -19,6 +19,18 @@ header('Content-type: application/json');
 		}
 	}
 
+	function updateFunction($price, $picture, $rent, $sell, $house, $dept, $school, $market, $pool, $state){
+		$conn = connectionToDataBase();
+
+		if($conn != null){
+			$sql = "UPDATE uploadedimages SET estado = '$state', renta = '$rent', venta = '$sell', house = '$house', departamento = '$dept', precio = '$price', escuelas = '$school', mercado = '$market', pool = '$pool' WHERE imagen = '$picture'";
+
+			$conn->query($sql);
+			return array("result" => "ok");
+			$conn->close();
+		}
+	}
+
 
 /*	function checaSession(){
 		session_start();
@@ -29,7 +41,7 @@ header('Content-type: application/json');
 	}*/
 
 
-		function attemptCheckSession(){
+	function attemptCheckSession(){
 
 		session_start();
 
