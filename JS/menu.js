@@ -20,6 +20,8 @@ $(document).ready(function (e) {
         }
         else if($(this).text() == "Publish")
         	window.location.replace("publish.php");
+        else if($(this).text() == "Home")
+            window.location.replace("index.html");
         else
             window.location.replace($(this).text() + ".html");
     });	

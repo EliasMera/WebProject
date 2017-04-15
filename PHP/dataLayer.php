@@ -31,31 +31,17 @@ header('Content-type: application/json');
 		}
 	}
 
-
-/*	function checaSession(){
-		session_start();
-		if (isset($_SESSION["username"])) {
-			$response = array("result" => "ok", 'fname' => $_SESSION["fname"]);			
-		    echo json_encode($response);
-   	 	}
-	}*/
-
-
 	function attemptCheckSession(){
 
 		session_start();
 
 		if (isset($_SESSION["username"])) {
         
-			return array("status" => "SUCCESS");
+			return array("result" => "ok");
    	 	}
    	 	else{
-
-				$conn -> close();
-				return array("status" => "SESSIONEXP");
-
-			} 
-
+			return array("result" => "SESSIONEXP");
+		} 
 	}
 
 	function loginData($userName, $save) {
@@ -165,13 +151,13 @@ header('Content-type: application/json');
 		else
 		{
 			$conn -> close();
-			return array("status" => "BADCRED");
+			return array("result" => "BADCRED");
 	    	//header('HTTP/1.1 406 User not found');
 	        //die("Wrong credentials provided!");
 		}
 
 	
-	return array("status" => "SESSIONEXP");
+	return array("result" => "SESSIONEXP");
 
 	}
 	

@@ -44,8 +44,7 @@
 			echo json_encode(array("result" => "ok"));
 		}	
 		else{
-			header('HTTP/1.1 500' . $result["status"]);
-			die($result["status"]);
+			die($result["result"]);
 		}
 	}
 
@@ -91,13 +90,12 @@
 			$decryptedPassword = decrypt($result['password']);
 
 			if ($decryptedPassword === $userPassword){	
-		    	$response = array("status" => "COMPLETE");   
+		    	$response = array("result" => "COMPLETE");   
 			    echo json_encode(array("result" => "ok"));
 			}
 		}	
 		else{
-			header('HTTP/1.1 500' . $result["status"]);
-			die($result["status"]);
+			die($result["result"]);
 		}	
 	}
 
@@ -126,8 +124,6 @@
 				echo json_encode(array("result" => "ok"));
 			}
 			else{
-
-				header('HTTP/1.1 409 Conflict, Username already in use');
 				echo json_encode(array("result" => "error"));
 			}
 
@@ -142,7 +138,7 @@
 
 	$result = attemptProfile($userName);
 
-	if ($result["status"] == "BADCRED"){
+	if ($result["result"] == "BADCRED"){
 		echo json_encode(array("message" => "Wrong credentials provided"));
 
 	}
@@ -157,28 +153,23 @@
 			echo json_encode($result);
 		}	
 		else{
-			header('HTTP/1.1 500' . $result["status"]);
-			die($result["status"]);
+			header('HTTP/1.1 500' . $result["result"]);
+			die($result["result"]);
 		}
 	 }
 
 */
-	  function checkSessionF()
- {
- 	$result = attemptCheckSession();
-    
-    if ($result["status"] == "SUCCESS"){
-		echo json_encode(array("message" => "Session iniciada correctamente"));
-	}	
-	else
-		if($result["status"] == "SESSIONEXP"){
-
-			header('HTTP/1.1 500' . $result["status"]);
-		die($result["status"]);
-
-
+	function checkSessionF()
+ 	{
+ 		$result = attemptCheckSession();
+  	    if ($result["result"] == "ok"){
+			echo json_encode(array("result" => "ok"));
+		}	
+		else
+			if($result["result"] == "SESSIONEXP"){
+			die($result["result"]);
 		}
-}
+	}
 
 	function logout() {
 		$result = logoutFunction();
@@ -187,8 +178,7 @@
 			echo json_encode(array("result" => "Logout succesfull"));
 		}	
 		else{
-			header('HTTP/1.1 500' . $result["status"]);
-			die($result["status"]);
+			die($result["result"]);
 		}
 	}
 ?>

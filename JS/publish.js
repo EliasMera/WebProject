@@ -20,13 +20,29 @@ $(document).ready(function (e) {
             },
             error: function(errorMessage){
                 console.log("failed");
-                //window.location.replace("Login.html")
-                
                 alert("Error please log in");
                 window.location.replace("Login.html").delay(800);
-
             }
+    });
 
+    var jsonToSend = {
+            "action" : "loadProfile"     
+    }
+         
+    $.ajax ({
+        url : "PHP/appLayer.php",
+        type : "POST",
+        data : jsonToSend,
+        dataType : "json",
+        contentType : "application/x-www-form-urlencoded",
+        success : function(jsonResp){
+            if(sess == 1){
+                $("#logUser").html(jsonResp.fName);
+            }       
+        },
+        error: function(errorMessage){
+            console.log(errorMsg.message);
+        }
     });
 
     $("#uploadimage").on('submit', (function (e) {
@@ -92,6 +108,7 @@ $(document).ready(function (e) {
             }
         });
     });
+    
     function imageIsLoaded(e) {
         $("#file").css("color", "green");
         $('#image_preview').css("display", "block");

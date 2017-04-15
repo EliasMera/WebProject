@@ -6,6 +6,8 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="JS/publish.js"></script>
     <script type="text/javascript" src="JS/menu.js"></script>
+    <script type="text/javascript" src="JS/checkUser.js"></script>
+    <script type="text/javascript" src="JS/publish.js"></script>
 </head>
 
 <body>
@@ -16,20 +18,19 @@
 		
 			 <div>
 			<ul id="menu">
-			<li>Index</li>
-			<li>Login</li>
-        	<li>Register</li>
-        	<li>Publish</li>
-        	<li>About</li>
-        	<li>Profile</li>
-            <li>Logout</li>
+                <li id="home">Home</li>
+                <li id="login">Login</li>
+                <li id="register">Register</li>
+                <li id="publish">Publish</li>
+                <li id="about">About</li>
+                <li id="profile">Profile</li>
+                <li id="logout">Logout</li>
     		</ul>
     		<ul id=search>
     		<li><input type="text" id="searchBar" size="40" name="search" placeholder="Search.."></li>
     		</ul>
 
     		<span id="logUser">
-    		hola mundo
     		</span>
    
     		</div>
