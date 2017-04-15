@@ -22,6 +22,7 @@ CREATE TABLE uploadedImages(
     escuelas VARCHAR(50) ,
     mercado VARCHAR(50) ,
     pool VARCHAR(50) ,
-    descripcion VARCHAR(300)
+    descripcion VARCHAR(300),
+    imagen VARCHAR(50)
 
 );
