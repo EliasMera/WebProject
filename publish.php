@@ -6,7 +6,6 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="JS/publish.js"></script>
     <script type="text/javascript" src="JS/menu.js"></script>
-    <script type="text/javascript" src="JS/checkUser.js"></script>
     <script type="text/javascript" src="JS/publish.js"></script>
 </head>
 
@@ -49,7 +48,6 @@
 			</div>
 		</form>
 	</div>
-	<h4 id='loading' >loading..</h4>
 	<div id="message"></div>
 
 	<table  id="filter" align="center">
@@ -57,7 +55,7 @@
             <th>State</th>
             <td>
                 <div>
-                <input type="radio" class="check" name="Estado" value="Nuevo Leon"> Nuevo Leon<br>
+                <input type="radio" class="check" name="Estado" value="Nuevo Leon" checked> Nuevo Leon<br>
                 <input type="radio" class="check" name="Estado" value="Coahuila"> Coahuila<br>
                 </div> 
             </td>

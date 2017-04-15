@@ -36,9 +36,9 @@
 		$school = $_POST["school"];
 		$market = $_POST["market"];
 		$pool = $_POST["pool"];
-		$state = $_POST["state"];
+		$ustate = $_POST["ustate"];
 		
-		$result = updateFunction($price, $picture, $rent, $sell, $house, $dept, $school, $market, $pool, $state, $username);
+		$result = updateFunction($price, $picture, $rent, $sell, $house, $dept, $school, $market, $pool, $ustate, $username);
 
 		if ($result["result"] == "ok"){   
 			echo json_encode(array("result" => "ok"));

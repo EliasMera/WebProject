@@ -72,7 +72,7 @@ $target_dir = "C:\MAMP\htdocs\WebProject\Images\\";
             //echo "The file db ". $target_file_upload_db. " has been uploaded.";
             $conn = connectionToDataBase();
 
-            $sql = "INSERT INTO uploadedImages VALUES ('' , '','' ,'' ,'' ,'' ,'' ,'' ,'' ,'' ,'' ,'' , '$target_file_upload_db')";
+            $sql = "INSERT INTO uploadedImages VALUES ('' , '','' ,'' ,'' ,'' ,'' ,'' ,'' ,'' ,'' ,'' , '$target_file_upload_db', '')";
 
             $result = $conn->query($sql);
             $conn -> close();

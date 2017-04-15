@@ -58,6 +58,7 @@ $(document).ready(function (e) {
             processData: false,        // To send DOMDocument or non processed data file it is set to false
             success: function (data)   // A function to be called if request succeeds
             {
+                console.log("1 llamada");
                 picture = data.result;
                 var jsonSession = {
                     "action" : "updateEntry",
@@ -70,7 +71,7 @@ $(document).ready(function (e) {
                     "market" : ($("#market").is(":checked"))? "Y" : "N",
                     "pool" : ($("#pool").is(":checked"))? "Y" : "N",
                     "price" : $("#price").val(),
-                    "state" : $('input[name=Estado]:checked').val()
+                    "ustate" : $('input[name=Estado]:checked').val()
                 }
                 $.ajax({
                     url: "PHP/appLayer.php",
@@ -80,6 +81,7 @@ $(document).ready(function (e) {
                     contentType: "application/x-www-form-urlencoded",
                     success: function(data){
                         alert("ya se armo");
+                        console.log("2 llamada");
                     },
                     error: function(errorMessage){
                         console.log("failed");
