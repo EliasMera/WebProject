@@ -73,6 +73,7 @@ $(document).ready(function () {
                 $("#resDiv").append(newHtml);
             },
             error: function(errorMessage){
+            	$("#resDiv").append("No matches found");
                 console.log("failed");
 
             }		
