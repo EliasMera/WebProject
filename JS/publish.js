@@ -77,7 +77,7 @@ $(document).ready(function (e) {
                     "description" : $("#textBoxDescription").val()
 
                 }
-                console.log($("#textBoxTitle").val());
+                
                 if($("#textBoxTitle").val() && $("#textBoxDirection").val() && $("#textBoxDescription").val()){
                 $.ajax({
                     url: "PHP/appLayer.php",
@@ -95,7 +95,27 @@ $(document).ready(function (e) {
                 });
                 }
                 else{
-                    alert("Error, please fill in all the information");                }
+                        var jsonToSendF = {
+                            "picture" : picture,
+                            "action" : "delete"
+                        }
+
+                    $.ajax({
+                    url: "PHP/appLayer.php",
+                    type: "POST",
+                    data: jsonToSendF,
+                    dataType: "json",
+                    contentType: "application/x-www-form-urlencoded",
+                    success: function(data){
+                        alert("Error ccould not create listing");
+                        
+                    },
+                    error: function(errorMessage){
+                        console.log("failed");
+                    }
+                });                        
+
+                }
 
             }
         });

@@ -19,6 +19,8 @@
 						break;
 		case "updateEntry" : updateDB();
 						break;
+		case "delete" : deleteLastEntry();
+						break;
 	}
 
 
@@ -43,6 +45,20 @@
 		
 		$result = updateFunction($price, $picture, $rent, $sell, $house, $dept, $school, $market, $pool, $ustate, $username, $title, $direction, $description);
 
+		if ($result["result"] == "ok"){   
+			echo json_encode(array("result" => "ok"));
+		}	
+		else{
+			die($result["result"]);
+		}
+	}
+
+
+	function deleteLastEntry(){
+
+		$picture = $_POST["picture"];
+
+		$result = deleteLastEnt($picture);
 		if ($result["result"] == "ok"){   
 			echo json_encode(array("result" => "ok"));
 		}	

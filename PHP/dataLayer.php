@@ -31,6 +31,18 @@ header('Content-type: application/json');
 		}
 	}
 
+	function deleteLastEnt($picture){
+		$conn = connectionToDataBase();
+
+		if($conn != null){
+
+			$sql = "DELETE FROM uploadedImages WHERE imagen = '$picture'";
+			return array("result" => "ok");
+			$conn->close();
+		}
+
+	}
+
 	function attemptCheckSession(){
 
 		session_start();
