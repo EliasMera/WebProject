@@ -44,6 +44,45 @@ header('Content-type: application/json');
 
 	}
 
+	function loadN(){
+
+		$loaded = array();
+
+		$conn = connectionToDataBase();
+
+		if($conn != null){
+			$sql = "SELECT direccion, titulo, descripcion, venta, renta, property, precio, owner, imagen FROM uploadedImages";
+			$result = $conn->query($sql);
+
+		
+			if ($result->num_rows > 0)
+			{
+				
+				// output data of each row
+			    while($row = $result->fetch_assoc()) 
+			    {
+
+			    	$response = array('imagen' => $row['imagen'],'direccion' => $row['direccion'], 'titulo' => $row['titulo'],'descripcion' => $row['descripcion'], 'venta' => $row['venta'], 'renta' => $row['renta'],'property' => $row['property'],'precio' => $row['precio'],'owner' => $row['owner']);
+			    	
+			    	array_push($loaded,$response);
+
+				}
+				echo json_encode($loaded);
+
+			}
+			else
+			{
+
+				$conn -> close();
+				return array("result" => "BADCRED");
+
+			}
+
+
+
+		}
+	}
+
 	function attemptCheckSession(){
 
 		session_start();

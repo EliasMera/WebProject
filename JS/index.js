@@ -2,21 +2,20 @@ $(document).ready(function () {
 
 
 	var jsonToSend = {
-		"action" : "loadNResults",
-		"num" : 10
+		"action" : "loadNResults"
 	}
 
 	$.ajax({
             url: "PHP/appLayer.php",
             type: "POST",
-            data: jsonSession,
+            data: jsonToSend,
             dataType: "json",
             contentType: "application/x-www-form-urlencoded",
             success: function(jsonResponse){
                 console.log("wuu cargue cosas");
                 var newHtml = "";
-                for(i = 0; i < jsonResponse.length; i++){
-                   newHtml+= "<table>" + "<tr>" + "<th>" + jsonResponse[i].imagen + "</th>" +
+                for(i = 0; i < Math.min(10, jsonResponse.length); i++){
+                   newHtml+= "<table>" + "<tr>" + "<th>" +"<img src='Images/" + jsonResponse[i].imagen + "' width='200' height='110'/>" + "</th>" +
                    "<td>" + jsonResponse[i].titulo + "<br>" + jsonResponse[i].direccion + "<br>" +
                    jsonResponse[i].descripcion + "<br>" + jsonResponse[i].venta + " " + jsonResponse[i].renta + "<br>" +
                    jsonResponse[i].property + "<br>" +

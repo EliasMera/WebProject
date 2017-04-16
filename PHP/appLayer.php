@@ -21,6 +21,8 @@
 						break;
 		case "delete" : deleteLastEntry();
 						break;
+		case "loadNResults" : loadNRes();
+						break;
 	}
 
 
@@ -65,6 +67,19 @@
 		else{
 			die($result["result"]);
 		}
+	}
+
+	function loadNRes(){
+
+		$result = loadN();
+
+		if ($result["result"] == "BADCRED"){
+
+			echo json_encode(array("message" => "Wrong credentials provided"));
+
+		}
+
+
 	}
 
 	function decrypt($password){
