@@ -6,7 +6,6 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="JS/publish.js"></script>
     <script type="text/javascript" src="JS/menu.js"></script>
-    <script type="text/javascript" src="JS/checkUser.js"></script>
     <script type="text/javascript" src="JS/publish.js"></script>
 </head>
 
@@ -51,7 +50,7 @@
 	</div>
 	<div id="message"></div>
 
-	<table  id="filter" align="center">
+	<table  id="filter" align="left">
         <tr>
             <th>Tittle</th>
             <td>

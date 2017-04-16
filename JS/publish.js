@@ -16,11 +16,15 @@ $(document).ready(function (e) {
             contentType: "application/x-www-form-urlencoded",
             success: function(jsonResponse){
                 console.log("successs");
+                $("#login").hide();
+                $("#register").hide();
                 sess = 1;
             },
             error: function(errorMessage){
                 console.log("failed");
                 alert("Error please log in");
+                $("#logout").hide();
+                $("#profile").hide();
                 window.location.replace("Login.html").delay(800);
             }
     });
