@@ -19,7 +19,7 @@ header('Content-type: application/json');
     }
 
 
-$target_dir = "C:\MAMP\htdocs\WebProject\Images\\";
+$target_dir = "Images\\";
 
 
 
@@ -31,16 +31,7 @@ $target_dir = "C:\MAMP\htdocs\WebProject\Images\\";
     $target_file_upload_files = $target_dir.$uniqIdName.".".$imageFileType;
     //var to upload in db.
     $target_file_upload_db = $uniqIdName.".".$imageFileType;
-    //data to insert db
-    
-    /*$data = Array (
-        "id" => $userNameFound['id'],
-        "userName" => $userNameFound['email'],
-        "password" => $userNameFound['password'],
-        "userPhoto" => $target_file_upload_db
-    );*/
-
-    
+    //data to insert db   
 
     // Check if file already exists
     if (file_exists($target_file_upload_files)) {
@@ -54,25 +45,16 @@ $target_dir = "C:\MAMP\htdocs\WebProject\Images\\";
         $uploadOk = 0;
     }
 
-    // Allow certain file formats
-    /*if($imageFileType != "jpg" || $imageFileType != "png" || $imageFileType != "jpeg" || $imageFileType != "gif" ) {
-        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-        $uploadOk = 0;
-    }*/
-
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
         echo "Sorry, your file was not uploaded.";
 
     // if everything is ok, try to upload file
     } else {
-        // move the temporary file to the real location with the correct name.
         if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file_upload_files)) {
-            //echo "The file ". $target_file_upload_files. " has been uploaded.";
-            //echo "The file db ". $target_file_upload_db. " has been uploaded.";
             $conn = connectionToDataBase();
 
-            $sql = "INSERT INTO uploadedImages VALUES ('' , '','' ,'' ,'' ,'' ,'' ,'' ,'' ,'' ,'' ,'' , '$target_file_upload_db', '')";
+            $sql = "INSERT INTO uploadedImages VALUES ('' , '','' ,'' ,'' ,'' ,'' ,'' ,'' ,'' ,'' ,'' , '$target_file_upload_db', '', '')";
 
             $result = $conn->query($sql);
             $conn -> close();
