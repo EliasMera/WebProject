@@ -37,6 +37,7 @@ header('Content-type: application/json');
 		if($conn != null){
 
 			$sql = "DELETE FROM uploadedImages WHERE imagen = '$picture'";
+			$conn->query($sql);
 			return array("result" => "ok");
 			$conn->close();
 		}

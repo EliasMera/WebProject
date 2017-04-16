@@ -95,28 +95,25 @@ $(document).ready(function (e) {
                 });
                 }
                 else{
-                        var jsonToSendF = {
-                            "picture" : picture,
-                            "action" : "delete"
-                        }
-
-                    $.ajax({
-                    url: "PHP/appLayer.php",
-                    type: "POST",
-                    data: jsonToSendF,
-                    dataType: "json",
-                    contentType: "application/x-www-form-urlencoded",
-                    success: function(data){
-                        alert("Error ccould not create listing");
-                        
-                    },
-                    error: function(errorMessage){
-                        console.log("failed");
+                    var jsonToSendF = {
+                        "picture" : picture,
+                        "action" : "delete"
                     }
-                });                        
-
+                    $.ajax({
+	                    url: "PHP/appLayer.php",
+	                    type: "POST",
+	                    data: jsonToSendF,
+	                    dataType: "json",
+	                    contentType: "application/x-www-form-urlencoded",
+	                    success: function(data){
+	                        alert("Error could not create listing");
+	                        
+	                    },
+	                    error: function(errorMessage){
+	                        console.log("failed");
+	                    }
+                	});                        
                 }
-
             }
         });
     }));
