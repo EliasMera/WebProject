@@ -19,6 +19,15 @@ ul#menu li:hover, ul#menu li.selected {
     cursor: pointer;
 }
 
+#resDiv{
+	align-content: center;
+	position: absolute;
+	top: 90px;
+	left: 40%;
+	width: 850px;
+	height:530px;
+}
+
 ul#search{
 
     list-style: none;

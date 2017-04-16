@@ -89,7 +89,8 @@ $(document).ready(function (e) {
                     dataType: "json",
                     contentType: "application/x-www-form-urlencoded",
                     success: function(data){
-                        alert("ya se armo");
+                        alert("Image succesfully Uploaded");
+                        window.location.replace("index.html").delay(800);
                         console.log("2 llamada");
                     },
                     error: function(errorMessage){
