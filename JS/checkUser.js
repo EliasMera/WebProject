@@ -20,6 +20,7 @@ $(document).ready(function(){
                 console.log("failed");
                 $("#logout").hide();
                 $("#profile").hide();
+                $("#myuploads").hide();
             }
     });
 

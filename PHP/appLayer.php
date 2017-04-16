@@ -23,6 +23,8 @@
 						break;
 		case "loadNResults" : loadNRes();
 						break;
+		case "loadmyuploads" : loadUploads();
+						break;
 	}
 
 
@@ -80,6 +82,21 @@
 		}
 
 
+	}
+
+	function loadUploads(){
+
+		session_start();
+
+		$owner = $_SESSION['username'];
+
+		$result = loadMyUploads($owner);
+
+		if ($result["result"] == "BADCRED"){
+
+			echo json_encode(array("message" => "Wrong credentials provided"));
+
+		}
 	}
 
 	function decrypt($password){

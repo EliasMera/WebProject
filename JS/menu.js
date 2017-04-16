@@ -22,6 +22,8 @@ $(document).ready(function (e) {
         	window.location.replace("publish.php");
         else if($(this).text() == "Home")
             window.location.replace("index.html");
+        else if($(this).text() == "My uploads")
+            window.location.replace("myuploads.html");
         else
             window.location.replace($(this).text() + ".html");
     });	

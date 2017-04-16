@@ -23,6 +23,7 @@
                 <li id="publish">Publish</li>
                 <li id="about">About</li>
                 <li id="profile">Profile</li>
+                <li id="myuploads">My uploads</li>
                 <li id="logout">Logout</li>
     		</ul>
     		<ul id=search>
