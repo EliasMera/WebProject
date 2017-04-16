@@ -19,11 +19,11 @@ header('Content-type: application/json');
 		}
 	}
 
-	function updateFunction($price, $picture, $rent, $sell, $house, $dept, $school, $market, $pool, $ustate, $username, $title, $direction, $description){
+	function updateFunction($price, $picture, $rent, $sell, $house, $dept, $school, $market, $pool, $ustate, $username, $title, $direction, $description, $date){
 		$conn = connectionToDataBase();
 
 		if($conn != null){
-			$sql = "UPDATE uploadedimages SET direccion = '$direction', titulo = '$title', estado = '$ustate', renta = '$rent', venta = '$sell', house = '$house', departamento = '$dept', precio = '$price', escuelas = '$school', mercado = '$market', pool = '$pool', descripcion = '$description', owner = '$username' WHERE imagen = '$picture'";
+			$sql = "UPDATE uploadedimages SET direccion = '$direction', titulo = '$title', estado = '$ustate', renta = '$rent', venta = '$sell', house = '$house', departamento = '$dept', precio = '$price', escuelas = '$school', mercado = '$market', pool = '$pool', descripcion = '$description', owner = '$username' , postedOn = '$date' WHERE imagen = '$picture'";
 
 			$conn->query($sql);
 			return array("result" => "ok");

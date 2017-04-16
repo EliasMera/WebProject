@@ -42,8 +42,9 @@
 		$title = $_POST['title'];
 		$direction = $_POST['direction'];
 		$description = $_POST['description'];
+		$date = date("Y/m/d");
 		
-		$result = updateFunction($price, $picture, $rent, $sell, $house, $dept, $school, $market, $pool, $ustate, $username, $title, $direction, $description);
+		$result = updateFunction($price, $picture, $rent, $sell, $house, $dept, $school, $market, $pool, $ustate, $username, $title, $direction, $description, $date);
 
 		if ($result["result"] == "ok"){   
 			echo json_encode(array("result" => "ok"));
