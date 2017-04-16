@@ -19,11 +19,11 @@ header('Content-type: application/json');
 		}
 	}
 
-	function updateFunction($price, $picture, $rent, $sell, $propertyType, $school, $market, $pool, $ustate, $username, $title, $direction, $description, $date){
+	function updateFunction($price, $picture, $rent, $sell, $propertyType, $school, $market, $pool, $ustate, $username, $title, $direction, $description, $date, $email){
 		$conn = connectionToDataBase();
 
 		if($conn != null){
-			$sql = "UPDATE uploadedimages SET direccion = '$direction', titulo = '$title', estado = '$ustate', renta = '$rent', venta = '$sell', property = '$propertyType', precio = '$price', escuelas = '$school', mercado = '$market', pool = '$pool', descripcion = '$description', owner = '$username' , postedOn = '$date' WHERE imagen = '$picture'";
+			$sql = "UPDATE uploadedimages SET direccion = '$direction', titulo = '$title', estado = '$ustate', renta = '$rent', venta = '$sell', property = '$propertyType', precio = '$price', escuelas = '$school', mercado = '$market', pool = '$pool', descripcion = '$description', owner = '$username' , postedOn = '$date', email = '$email' WHERE imagen = '$picture'";
 
 			$conn->query($sql);
 			return array("result" => "ok");
@@ -35,7 +35,7 @@ header('Content-type: application/json');
 		$loaded = array();
 		$conn = connectionToDataBase();
 		if($conn != null){
-			$sql = "SELECT direccion, titulo, descripcion, venta, renta, property, precio, owner, imagen FROM uploadedImages WHERE $from <= precio AND precio <= $to AND estado = '$ustate' ";
+			$sql = "SELECT * FROM uploadedImages WHERE $from <= precio AND precio <= $to AND estado = '$ustate' ";
 
 			if(strcmp($rent,"true")  == 0)	$sql .= " AND renta = 'Y' ";
 			if(strcmp($sell,"true")  == 0)	$sql .= " AND venta = 'Y' ";
@@ -54,7 +54,7 @@ header('Content-type: application/json');
 				// output data of each row
 			    while($row = $result->fetch_assoc()) 
 			    {
-			    	$response = array('imagen' => $row['imagen'],'direccion' => $row['direccion'], 'titulo' => $row['titulo'],'descripcion' => $row['descripcion'], 'venta' => $row['venta'], 'renta' => $row['renta'],'property' => $row['property'],'precio' => $row['precio'],'owner' => $row['owner']);
+			    	$response = array('imagen' => $row['imagen'],'direccion' => $row['direccion'], 'titulo' => $row['titulo'],'descripcion' => $row['descripcion'], 'venta' => $row['venta'], 'renta' => $row['renta'],'property' => $row['property'],'precio' => $row['precio'],'owner' => $row['owner'], 'email' => $row['email']);
 			    	
 			    	array_push($loaded,$response);
 				}
@@ -86,7 +86,7 @@ header('Content-type: application/json');
 		$conn = connectionToDataBase();
 
 		if($conn != null){
-			$sql = "SELECT direccion, titulo, descripcion, venta, renta, property, precio, owner, imagen FROM uploadedImages";
+			$sql = "SELECT * FROM uploadedImages";
 			$result = $conn->query($sql);
 
 		
@@ -95,7 +95,7 @@ header('Content-type: application/json');
 				// output data of each row
 			    while($row = $result->fetch_assoc()) 
 			    {
-			    	$response = array('imagen' => $row['imagen'],'direccion' => $row['direccion'], 'titulo' => $row['titulo'],'descripcion' => $row['descripcion'], 'venta' => $row['venta'], 'renta' => $row['renta'],'property' => $row['property'],'precio' => $row['precio'],'owner' => $row['owner']);
+			    	$response = array('imagen' => $row['imagen'],'direccion' => $row['direccion'], 'titulo' => $row['titulo'],'descripcion' => $row['descripcion'], 'venta' => $row['venta'], 'renta' => $row['renta'],'property' => $row['property'],'precio' => $row['precio'],'owner' => $row['owner'], 'email' => $row['email']);
 			    	
 			    	array_push($loaded,$response);
 				}
@@ -238,7 +238,7 @@ header('Content-type: application/json');
 
 	}
 
-		function attemptProfile($userName){
+	function attemptProfile($userName){
 
 		//$userName = $_SESSION['username'];
 		$conn = connectionToDataBase();

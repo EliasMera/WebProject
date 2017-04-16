@@ -24,6 +24,6 @@ CREATE TABLE uploadedImages(
     descripcion VARCHAR(300),
     imagen VARCHAR(50),
     owner VARCHAR(50),
-    postedOn date
-
+    postedOn date,
+    email VARCHAR(50)
 );

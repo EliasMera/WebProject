@@ -54,7 +54,7 @@ $target_dir = "Images\\";
         if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file_upload_files)) {
             $conn = connectionToDataBase();
 
-            $sql = "INSERT INTO uploadedImages VALUES ('' , '','' ,'' ,'' ,'' ,'' ,'' ,'' ,'' ,'' , '$target_file_upload_db', '', '')";
+            $sql = "INSERT INTO uploadedImages VALUES ('' , '','' ,'' ,'' ,'' ,'' ,'' ,'' ,'' ,'' , '$target_file_upload_db', '', '', '')";
 
             $result = $conn->query($sql);
             $conn -> close();

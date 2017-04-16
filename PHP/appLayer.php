@@ -35,6 +35,7 @@
 		session_start();
 
 		$username= $_SESSION['username'];
+		$email = $_SESSION['email'];
 		$price = $_POST["price"];
 		$picture = $_POST["picture"];
 		$rent = $_POST["rent"];
@@ -49,7 +50,7 @@
 		$description = $_POST['description'];
 		$date = date("Y/m/d");
 		
-		$result = updateFunction($price, $picture, $rent, $sell, $propertyType, $school, $market, $pool, $ustate, $username, $title, $direction, $description, $date);
+		$result = updateFunction($price, $picture, $rent, $sell, $propertyType, $school, $market, $pool, $ustate, $username, $title, $direction, $description, $date, $email);
 
 		if ($result["result"] == "ok"){   
 			echo json_encode(array("result" => "ok"));
