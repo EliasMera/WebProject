@@ -25,6 +25,8 @@
 						break;
 		case "loadmyuploads" : loadUploads();
 						break;
+		case "refresh" : refresh();
+						break;
 	}
 
 
@@ -57,6 +59,28 @@
 		}
 	}
 
+	function refresh(){
+		$from = $_POST["from"];
+		$to = $_POST["to"];
+		$rent = $_POST["rent"];
+		$sell = $_POST["sell"];
+		$school = $_POST["school"];
+		$market = $_POST["market"];
+		$pool = $_POST["pool"];
+		$ustate = $_POST["ustate"];
+		$house = $_POST["house"];
+		$dept = $_POST["dept"];
+
+		$result = refreshFunction($from, $to, $rent, $sell, $school, $market, $pool, $ustate, $house, $dept);
+
+		if ($result["result"] == "ok"){   
+			echo json_encode(array("result" => "ok"));
+		}	
+		else{
+			die($result["result"]);
+		}
+	}
+
 
 	function deleteLastEntry(){
 
@@ -72,16 +96,10 @@
 	}
 
 	function loadNRes(){
-
 		$result = loadN();
-
 		if ($result["result"] == "BADCRED"){
-
 			echo json_encode(array("message" => "Wrong credentials provided"));
-
 		}
-
-
 	}
 
 	function loadUploads(){

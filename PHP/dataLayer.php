@@ -31,6 +31,43 @@ header('Content-type: application/json');
 		}
 	}
 
+	function refreshFunction($from, $to, $rent, $sell, $school, $market, $pool, $ustate, $house, $dept){
+		$loaded = array();
+		$conn = connectionToDataBase();
+		if($conn != null){
+			$sql = "SELECT direccion, titulo, descripcion, venta, renta, property, precio, owner, imagen FROM uploadedImages WHERE $from <= precio AND precio <= $to AND estado = '$ustate' ";
+
+			if(strcmp($rent,"true")  == 0)	$sql .= " AND renta = 'Y' ";
+			if(strcmp($sell,"true")  == 0)	$sql .= " AND venta = 'Y' ";
+			if(strcmp($school ,"true")  == 0)	$sql .= " AND escuelas = 'Y' ";
+			if(strcmp($market ,"true")  == 0)	$sql .= " AND mercado = 'Y' ";
+			if(strcmp($pool ,"true")  == 0)	$sql .= " AND pool = 'Y' ";
+			if(strcmp($house  ,"true")  == 0 and strcmp($dept ,"true")  == 0) $sql .= " ";
+			else{
+				if(strcmp($house  ,"true")  == 0)	$sql .= " AND property = 'House' ";
+				if(strcmp($dept ,"true")  == 0)	$sql .= " AND property = 'Department' ";
+			}
+
+			$result = $conn->query($sql);
+			if ($result->num_rows > 0)
+			{	
+				// output data of each row
+			    while($row = $result->fetch_assoc()) 
+			    {
+			    	$response = array('imagen' => $row['imagen'],'direccion' => $row['direccion'], 'titulo' => $row['titulo'],'descripcion' => $row['descripcion'], 'venta' => $row['venta'], 'renta' => $row['renta'],'property' => $row['property'],'precio' => $row['precio'],'owner' => $row['owner']);
+			    	
+			    	array_push($loaded,$response);
+				}
+				echo json_encode($loaded);
+			}
+			else
+			{
+				$conn -> close();
+				return array("result" => "BADCRED");
+			}
+		}
+	}
+
 	function deleteLastEnt($picture){
 		$conn = connectionToDataBase();
 
@@ -45,9 +82,7 @@ header('Content-type: application/json');
 	}
 
 	function loadN(){
-
 		$loaded = array();
-
 		$conn = connectionToDataBase();
 
 		if($conn != null){
@@ -56,30 +91,21 @@ header('Content-type: application/json');
 
 		
 			if ($result->num_rows > 0)
-			{
-				
+			{	
 				// output data of each row
 			    while($row = $result->fetch_assoc()) 
 			    {
-
 			    	$response = array('imagen' => $row['imagen'],'direccion' => $row['direccion'], 'titulo' => $row['titulo'],'descripcion' => $row['descripcion'], 'venta' => $row['venta'], 'renta' => $row['renta'],'property' => $row['property'],'precio' => $row['precio'],'owner' => $row['owner']);
 			    	
 			    	array_push($loaded,$response);
-
 				}
 				echo json_encode($loaded);
-
 			}
 			else
 			{
-
 				$conn -> close();
 				return array("result" => "BADCRED");
-
 			}
-
-
-
 		}
 	}
 
@@ -107,16 +133,12 @@ header('Content-type: application/json');
 
 				}
 				echo json_encode($loaded);
-
 			}
 			else
 			{
-
 				$conn -> close();
 				return array("result" => "BADCRED");
-
 			}
-
 		}
 	}
 

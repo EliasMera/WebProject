@@ -17,7 +17,7 @@ CREATE TABLE uploadedImages(
     renta VARCHAR(10) ,
     venta VARCHAR(10) ,
     property VARCHAR(10),
-    precio VARCHAR(50) ,
+    precio BIGINT,
     escuelas VARCHAR(50) ,
     mercado VARCHAR(50) ,
     pool VARCHAR(50) ,
