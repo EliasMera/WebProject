@@ -33,8 +33,7 @@
 		$picture = $_POST["picture"];
 		$rent = $_POST["rent"];
 		$sell = $_POST["sell"];
-		$house = $_POST["house"];
-		$dept = $_POST["dept"];
+		$propertyType = $_POST["propertyType"];
 		$school = $_POST["school"];
 		$market = $_POST["market"];
 		$pool = $_POST["pool"];
@@ -44,7 +43,7 @@
 		$description = $_POST['description'];
 		$date = date("Y/m/d");
 		
-		$result = updateFunction($price, $picture, $rent, $sell, $house, $dept, $school, $market, $pool, $ustate, $username, $title, $direction, $description, $date);
+		$result = updateFunction($price, $picture, $rent, $sell, $propertyType, $school, $market, $pool, $ustate, $username, $title, $direction, $description, $date);
 
 		if ($result["result"] == "ok"){   
 			echo json_encode(array("result" => "ok"));
@@ -120,65 +119,45 @@
 	}
 
 	function registerUser(){
+		$fname = $_POST['fname'];
+		$lname = $_POST['lname'];
+		$username = $_POST['username'];
+		$email = $_POST['email'];
+		$password = encrypt();
+		$gender = $_POST['gender'];
+		$state = $_POST['state'];
 
-			$fname = $_POST['fname'];
-			$lname = $_POST['lname'];
-			$username = $_POST['username'];
-			$email = $_POST['email'];
-			$password = encrypt();
-			$gender = $_POST['gender'];
-			$state = $_POST['state'];
+		session_start();
 
-			session_start();
-
-			if(isset($_SESSION['username'])) {
-				session_unset();
-			}
-
-
-			$_SESSION['username'] = $username;
-
-			$result = registerData($fname, $lname, $username, $email, $password, $gender, $state);
-
-			if($result['result'] == "ok"){
-				echo json_encode(array("result" => "ok"));
-			}
-			else{
-				echo json_encode(array("result" => "error"));
-			}
+		if(isset($_SESSION['username'])) {
+			session_unset();
+		}
 
 
+		$_SESSION['username'] = $username;
+
+		$result = registerData($fname, $lname, $username, $email, $password, $gender, $state);
+
+		if($result['result'] == "ok"){
+			echo json_encode(array("result" => "ok"));
+		}
+		else{
+			echo json_encode(array("result" => "error"));
+		}
 	}
 
 	function loadProfile(){
+		session_start();
+		$userName = $_SESSION['username'];
+		
 
-	session_start();
-	$userName = $_SESSION['username'];
-	
+		$result = attemptProfile($userName);
 
-	$result = attemptProfile($userName);
-
-	if ($result["result"] == "BADCRED"){
-		echo json_encode(array("message" => "Wrong credentials provided"));
-
+		if ($result["result"] == "BADCRED"){
+			echo json_encode(array("message" => "Wrong credentials provided"));
+		}
 	}
 
-
-}
-
-/*	function checkSessionF(){
-	 	$result = checaSession();
-	    
-	    if ($result["result"] == "ok"){
-			echo json_encode($result);
-		}	
-		else{
-			header('HTTP/1.1 500' . $result["result"]);
-			die($result["result"]);
-		}
-	 }
-
-*/
 	function checkSessionF()
  	{
  		$result = attemptCheckSession();

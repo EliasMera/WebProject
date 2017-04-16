@@ -91,8 +91,8 @@
             <th>Type Property</th>
             <td>
                 <div>
-                <input id="house" type="checkbox" class="check" name="TypeProperty" value="House">House<br>
-                <input id="dept" type="checkbox" class="check" name="TypeProperty" value="Department">Department<br>
+                <input id="house" type="radio" class="check" name="TypeProperty" value="House" checked>House<br>
+                <input id="dept" type="radio" class="check" name="TypeProperty" value="Department">Department<br>
                 </div>
             </td>
         </tr>
@@ -100,7 +100,7 @@
             <th>Price</th>
             <td>
                 <div>
-                <input id="price" placeholder="$$$" type="number">
+                <input id="price" placeholder="$$$" type="number" min="0">
                 </div>
             </td>
         </tr>
