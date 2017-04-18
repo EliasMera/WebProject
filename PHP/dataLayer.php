@@ -68,6 +68,7 @@ header('Content-type: application/json');
 		}
 	}
 
+	//delete de un listing fallido 
 	function deleteLastEnt($picture){
 		$conn = connectionToDataBase();
 
@@ -78,6 +79,21 @@ header('Content-type: application/json');
 			return array("result" => "ok");
 			$conn->close();
 		}
+
+	}
+	//delete de un listing que se creo correctamente y aparece en myuploads
+	function deleteListing($delList){
+
+		$conn = connectionToDataBase();
+
+		if($conn != null){
+
+			$sql = "DELETE FROM uploadedImages WHERE imagen = '$delList'";
+			$conn->query($sql);
+			return array("result" => "ok");
+			$conn->close();
+		}
+
 
 	}
 

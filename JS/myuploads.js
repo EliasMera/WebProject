@@ -26,6 +26,7 @@ $(document).ready(function () {
                    	jsonResponse[i].property + "<br>" +
                    	jsonResponse[i].precio + " " + jsonResponse[i].owner +
                     escuelas + " " + mercado + " " + pool +
+                    "<input  class='delete' type='submit' value='Delete' dispName='"+ jsonResponse[i].imagen +"'/>" +
                      "</td>" + "</tr>";
                 }
                 newHtml += "</table>";
@@ -36,5 +37,32 @@ $(document).ready(function () {
 
             }		
 	});
+
+    $('#myUploads').on('click','.delete', function() {
+
+        var delList = $(this).attr("dispName");  
+
+        var jsonToSendF = {
+
+            "action" : "delListing",
+            "delList" : delList
+        }
+      
+
+        $.ajax({
+            url: "PHP/appLayer.php",
+            type: "POST",
+            dataType: "json",
+            data: jsonToSendF,
+            contentType: "application/x-www-form-urlencoded",
+            success: function (data) {
+                    alert("Listing deleted succesfully").delay(800);
+                    window.location.replace("myuploads.html");
+            },
+            error: function (errorMessage) {
+                console.log("salio mal algo :v");
+            }
+        });
+    });
 
 });
