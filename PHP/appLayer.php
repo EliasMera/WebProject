@@ -29,6 +29,8 @@
 						break;
 		case "delListing" : delListing();
 						break;
+		case "search" : search();
+						break;
 	}
 
 
@@ -86,9 +88,7 @@
 
 	//Este es el delete de cuando se sube una imagen pero se dejan los campos en blanco en la forma de publish
 	function deleteLastEntry(){
-
 		$picture = $_POST["picture"];
-
 		$result = deleteLastEnt($picture);
 		if ($result["result"] == "ok"){   
 			echo json_encode(array("result" => "ok"));
@@ -99,18 +99,12 @@
 	}
 
 
-		//borra un listing que esta craedo correctamente en myuploads
+	//borra un listing que esta craedo correctamente en myuploads
 	function delListing(){
-
 		$delList = $_POST['delList'];
-
-
 		$result = deleteListing($delList);
-
 		if ($result["result"] == "BADCRED"){
-
 			echo json_encode(array("message" => "Wrong credentials provided"));
-
 		}
 	}
 
@@ -121,14 +115,18 @@
 		}
 	}
 
+	function search(){
+		$address = $_POST["address"];
+		$result = searchFunction($address);
+		if ($result["result"] == "BADCRED"){
+			echo json_encode(array("message" => "Wrong credentials provided"));
+		}
+	}
+
 	function loadUploads(){
-
 		session_start();
-
 		$owner = $_SESSION['username'];
-
 		$result = loadMyUploads($owner);
-
 		if ($result["result"] == "ok"){   
 			echo json_encode(array("result" => "ok"));
 		}	

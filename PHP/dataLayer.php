@@ -125,6 +125,34 @@ header('Content-type: application/json');
 		}
 	}
 
+	function searchFunction($address){
+		$loaded = array();
+		$conn = connectionToDataBase();
+
+		if($conn != null){
+			$sql = "SELECT * FROM uploadedImages WHERE direccion LIKE '%$address%'";
+			$result = $conn->query($sql);
+
+		
+			if ($result->num_rows > 0)
+			{	
+				// output data of each row
+			    while($row = $result->fetch_assoc()) 
+			    {
+			    	$response = array('imagen' => $row['imagen'],'direccion' => $row['direccion'], 'titulo' => $row['titulo'],'descripcion' => $row['descripcion'], 'venta' => $row['venta'], 'renta' => $row['renta'],'property' => $row['property'],'precio' => $row['precio'],'owner' => $row['owner'], 'email' => $row['email']);
+			    	
+			    	array_push($loaded,$response);
+				}
+				echo json_encode($loaded);
+			}
+			else
+			{
+				$conn -> close();
+				return array("result" => "BADCRED");
+			}
+		}
+	}
+
 	function loadMyUploads($owner){
 
 		$loaded = array();

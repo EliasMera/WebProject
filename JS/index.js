@@ -12,7 +12,6 @@ $(document).ready(function () {
             dataType: "json",
             contentType: "application/x-www-form-urlencoded",
             success: function(jsonResponse){
-                console.log("wuu cargue cosas");
                 var newHtml = "";
                 for(i = 0; i < Math.min(10, jsonResponse.length); i++){
                 	var email = jsonResponse[i].email;
@@ -48,7 +47,6 @@ $(document).ready(function () {
             dataType: "json",
             contentType: "application/x-www-form-urlencoded",
             success: function(jsonResponse){
-                console.log("wuu cargue cosas");
                 var newHtml = "";
                 for(i = 0; i < Math.min(10, jsonResponse.length); i++){
                 	var email = jsonResponse[i].email;
@@ -98,7 +96,6 @@ $(document).ready(function () {
             dataType: "json",
             contentType: "application/x-www-form-urlencoded",
             success: function(jsonResponse){
-                console.log("wuu cargue cosas xd");
                 var newHtml = "";
                 for(i = 0; i < Math.min(10, jsonResponse.length); i++){
                 	var email = jsonResponse[i].email;
@@ -122,11 +119,39 @@ $(document).ready(function () {
 		});
 	});
 
-$("#btnSearch").click(function () {
-    //guarda los valores en el arreglo values de donde este checked el checkbox
-    var values = $('input:checkbox:checked.check').map(function () {
-        return this.value;
-    }).get();    
-  });
+    $("#btnSearch").click(function () {
+        $("#resDiv").html("");
+        var jsonToSend = {
+            "action" : "search",
+            "address" : $("#searchBar").val()
+        }
+
+        $.ajax({
+            url: "PHP/appLayer.php",
+            type: "POST",
+            data: jsonToSend,
+            dataType: "json",
+            contentType: "application/x-www-form-urlencoded",
+            success: function(jsonResponse){
+                var newHtml = "";
+                for(i = 0; i < Math.min(10, jsonResponse.length); i++){
+                    var email = jsonResponse[i].email;
+                    var emailOwner = "<a href='mailto:" + email + "?Subject=Housing%20Question' target='_top'>" + jsonResponse[i].owner + "</a>";
+                    var renta = (jsonResponse[i].renta === "Y") ? " For Rent " : "";
+                    var venta = (jsonResponse[i].venta === "Y") ? " For Sell " : "";
+                    newHtml+= "<table>" + "<tr>" + "<th>" +"<img src='Images/" + jsonResponse[i].imagen + "' width='200' height='110'/>" + "</th>" +
+                    "<td>" + jsonResponse[i].titulo + "<br>" + jsonResponse[i].direccion + "<br>" +
+                    jsonResponse[i].descripcion + "<br>" + venta + " " + renta + "<br>" +
+                    jsonResponse[i].property + "<br>" +
+                    jsonResponse[i].precio + " Contact: " + emailOwner + "</td>" + "</tr>";
+                }
+                newHtml += "</table>";
+                $("#resDiv").append(newHtml);
+            },
+            error: function(errorMessage){
+                $("#resDiv").append("No matches found");
+            }       
+        });
+    });
 
 });
