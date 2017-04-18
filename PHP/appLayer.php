@@ -104,8 +104,9 @@
 		$delList = $_POST['delList'];
 		$result = deleteListing($delList);
 		if ($result["result"] == "BADCRED"){
-			echo json_encode(array("message" => "Wrong credentials provided"));
+			echo json_encode(array("result" => "Wrong credentials provided"));
 		}
+		echo json_encode(array("result" => "ok"));
 	}
 
 	function loadNRes(){

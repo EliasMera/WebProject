@@ -41,9 +41,9 @@ $(document).ready(function () {
     $('#myUploads').on('click','.delete', function() {
 
         var delList = $(this).attr("dispName");  
+        console.log(delList);
 
         var jsonToSendF = {
-
             "action" : "delListing",
             "delList" : delList
         }
@@ -56,7 +56,7 @@ $(document).ready(function () {
             data: jsonToSendF,
             contentType: "application/x-www-form-urlencoded",
             success: function (data) {
-                    alert("Listing deleted succesfully").delay(800);
+                    alert("Listing deleted succesfully");
                     window.location.replace("myuploads.html");
             },
             error: function (errorMessage) {
