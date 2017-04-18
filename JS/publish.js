@@ -1,8 +1,6 @@
 var picture;
-
+var cuantos = 0;
 $(document).ready(function (e) {
-
-
     var sess ;
     var jsonSession = {
         "action" : "checkSession"
@@ -32,7 +30,6 @@ $(document).ready(function (e) {
     var jsonToSend = {
             "action" : "loadProfile"     
     }
-         
     $.ajax ({
         url : "PHP/appLayer.php",
         type : "POST",
@@ -49,78 +46,81 @@ $(document).ready(function (e) {
         }
     });
 
-    $("#uploadimage").on('submit', (function (e) {
-        e.preventDefault();
-        $("#message").empty();
-        $('#loading').show();
-        $.ajax({
-            url: "ajax_php_file.php", // Url to which the request is send
-            type: "POST",             // Type of request to be send, called as method
-            data: new FormData(this), // Data sent to server, a set of key/value pairs (i.e. form fields and values)
-            contentType: false,       // The content type used when sending data to the server.
-            cache: false,             // To unable request pages to be cached
-            processData: false,        // To send DOMDocument or non processed data file it is set to false
-            success: function (data)   // A function to be called if request succeeds
-            {
-                console.log("1 llamada");
-                picture = data.result;
-                var jsonSession = {
-                    "action" : "updateEntry",
-                    "picture" : picture,
-                    "rent" : ($("#rent").is(":checked"))? "Y" : "N",
-                    "sell" : ($("#sell").is(":checked"))? "Y" : "N",
-                    "school" : ($("#school").is(":checked"))? "Y" : "N",
-                    "market" : ($("#market").is(":checked"))? "Y" : "N",
-                    "pool" : ($("#pool").is(":checked"))? "Y" : "N",
-                    "price" : $("#price").val(),
-                    "ustate" : $('input[name=Estado]:checked').val(),
-                    "propertyType" : $('input[name=TypeProperty]:checked').val(),
-                    "title" : $("#textBoxTitle").val(),
-                    "direction" : $("#textBoxDirection").val(),
-                    "description" : $("#textBoxDescription").val()
-
-                }
-                
-                if($("#textBoxTitle").val() && $("#textBoxDirection").val() && $("#textBoxDescription").val()){
-                $.ajax({
-                    url: "PHP/appLayer.php",
-                    type: "POST",
-                    data: jsonSession,
-                    dataType: "json",
-                    contentType: "application/x-www-form-urlencoded",
-                    success: function(data){
-                        alert("Image succesfully Uploaded");
-                        window.location.replace("index.html").delay(800);
-                        console.log("2 llamada");
-                    },
-                    error: function(errorMessage){
-                        console.log("failed");
-                    }
-                });
-                }
-                else{
-                    var jsonToSendF = {
+    if(cuantos != 1){
+        cuantos++;
+        $("#uploadimage").on('submit', (function (e) {
+            e.preventDefault();
+            $("#message").empty();
+            $('#loading').show();
+            $.ajax({
+                url: "ajax_php_file.php", // Url to which the request is send
+                type: "POST",             // Type of request to be send, called as method
+                data: new FormData(this), // Data sent to server, a set of key/value pairs (i.e. form fields and values)
+                contentType: false,       // The content type used when sending data to the server.
+                cache: false,             // To unable request pages to be cached
+                processData: false,        // To send DOMDocument or non processed data file it is set to false
+                success: function (data)   // A function to be called if request succeeds
+                {
+                    console.log("1 llamada");
+                    picture = data.result;
+                    var jsonSession = {
+                        "action" : "updateEntry",
                         "picture" : picture,
-                        "action" : "delete"
+                        "rent" : ($("#rent").is(":checked"))? "Y" : "N",
+                        "sell" : ($("#sell").is(":checked"))? "Y" : "N",
+                        "school" : ($("#school").is(":checked"))? "Y" : "N",
+                        "market" : ($("#market").is(":checked"))? "Y" : "N",
+                        "pool" : ($("#pool").is(":checked"))? "Y" : "N",
+                        "price" : $("#price").val(),
+                        "ustate" : $('input[name=Estado]:checked').val(),
+                        "propertyType" : $('input[name=TypeProperty]:checked').val(),
+                        "title" : $("#textBoxTitle").val(),
+                        "direction" : $("#textBoxDirection").val(),
+                        "description" : $("#textBoxDescription").val()
+
                     }
+                    
+                    if($("#textBoxTitle").val() && $("#textBoxDirection").val() && $("#textBoxDescription").val()){
                     $.ajax({
-	                    url: "PHP/appLayer.php",
-	                    type: "POST",
-	                    data: jsonToSendF,
-	                    dataType: "json",
-	                    contentType: "application/x-www-form-urlencoded",
-	                    success: function(data){
-	                        alert("Error could not create listing");
-	                        
-	                    },
-	                    error: function(errorMessage){
-	                        console.log("failed");
-	                    }
-                	});                        
+                        url: "PHP/appLayer.php",
+                        type: "POST",
+                        data: jsonSession,
+                        dataType: "json",
+                        contentType: "application/x-www-form-urlencoded",
+                        success: function(data){
+                            alert("Image succesfully Uploaded");
+                            window.location.replace("index.html").delay(800);
+                            console.log("2 llamada");
+                        },
+                        error: function(errorMessage){
+                            console.log("failed");
+                        }
+                    });
+                    }
+                    else{
+                        var jsonToSendF = {
+                            "picture" : picture,
+                            "action" : "delete"
+                        }
+                        $.ajax({
+    	                    url: "PHP/appLayer.php",
+    	                    type: "POST",
+    	                    data: jsonToSendF,
+    	                    dataType: "json",
+    	                    contentType: "application/x-www-form-urlencoded",
+    	                    success: function(data){
+    	                        alert("Error could not create listing");
+    	                        
+    	                    },
+    	                    error: function(errorMessage){
+    	                        console.log("failed");
+    	                    }
+                    	});                        
+                    }
                 }
-            }
-        });
-    }));
+            });
+        }));
+    }
 
     // Function to preview image after validation
     $(function () {
