@@ -33,6 +33,7 @@ $(document).ready(function () {
                 $("#myUploads").append(newHtml);
             },
             error: function(errorMessage){
+                $("#myUploads").append("No results found");
                 console.log("failed");
 
             }		
