@@ -26,7 +26,7 @@ $(document).ready(function () {
                    	jsonResponse[i].property + "<br>" +
                    	jsonResponse[i].precio + " " + jsonResponse[i].owner +
                     escuelas + " " + mercado + " " + pool +
-                    "<input  class='delete' type='submit' value='Delete' dispName='"+ jsonResponse[i].imagen +"'/>" +
+                    "<input  class='btnDelete' type='submit' value='Delete' dispName='"+ jsonResponse[i].imagen +"'/>" +
                      "</td>" + "</tr>";
                 }
                 newHtml += "</table>";
@@ -39,7 +39,7 @@ $(document).ready(function () {
             }		
 	});
 
-    $('#myUploads').on('click','.delete', function() {
+    $('#myUploads').on('click','.btnDelete', function() {
 
         var delList = $(this).attr("dispName");  
         console.log(delList);
