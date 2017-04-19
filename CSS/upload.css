@@ -173,7 +173,6 @@ ul#menu {
     margin: 0;
     padding: 0;
     color: #e67300;
-    background-color: #404040;
     overflow: hidden;
     display:inline-block;
 }
@@ -192,7 +191,7 @@ ul#menu li:hover, ul#menu li.selected {
 #resDiv{
     align-content: center;
     position: absolute;
-    top: 90px;
+    top: 200px;
     left: 40%;
     width: 850px;
     height:530px;
@@ -203,8 +202,9 @@ ul#search{
     list-style: none;
     margin: 0;
     padding: 0;
-    background-color: ;
+    color: #e67300;
     overflow: hidden;
+    font-size: 20px;
     display:inline-block;
 
 }
