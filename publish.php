@@ -28,7 +28,7 @@
                 <li id="logout">Logout</li>
     		</ul>
     		<ul id=search>
-    		<li><input type="text" id="searchBar" size="40" name="search" placeholder="Search.."></li>
+    		
             <li> <span id="logUser"></span></li>
     		</ul>
 
