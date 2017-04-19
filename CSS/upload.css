@@ -8,6 +8,7 @@ body
     line-height: 1.6em;
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
     font-size: 25px;
+    background-color: #99ebff;
 }
 
 #filter
@@ -34,14 +35,14 @@ body
 }
 .oce-first
 {
-    background: #d0dafd;
+    background: #3399FF;
     border-right: 10px solid transparent;
     border-left: 10px solid transparent;
 }
 #filter tr:hover td
 {
     color: #339;
-    background: #eff2ff;
+    background: #99ccff;
 }
 
 h1

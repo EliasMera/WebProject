@@ -23,7 +23,7 @@ $(document).ready(function () {
                 	newHtml+= "<table>" + "<tr>" + "<th>" +"<img src='Images/" + jsonResponse[i].imagen + "' width='200' height='110'/>" + "</th>" +
                    	"<td>" + jsonResponse[i].titulo + "<br>" + jsonResponse[i].direccion + "<br>" +
                    	jsonResponse[i].descripcion + "<br>" + venta + " " + renta + "<br>" +
-                   	jsonResponse[i].property + "<br>" +
+                   	jsonResponse[i].property + "<br>" + "$" +
                    	jsonResponse[i].precio + " " + jsonResponse[i].owner +
                     escuelas + " " + mercado + " " + pool +
                     "<input  class='btnDelete' type='submit' value='Delete' dispName='"+ jsonResponse[i].imagen +"'/>" +
