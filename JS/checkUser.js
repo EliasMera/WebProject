@@ -34,9 +34,20 @@ $(document).ready(function(){
         data : jsonToSend,
         dataType : "json",
         contentType : "application/x-www-form-urlencoded",
-        success : function(jsonResp){    
-            $("#logUser").html(jsonResp.fName); 
-            console.log("sacda el nombreeeee");
+        success : function(jsonResp){ 
+
+            if(jsonResp.fName != null){
+                $("#logUser").html("Logged in as " + jsonResp.fName); 
+                $("#logUser").show();
+                console.log("sacda el nombreeeee");
+
+                
+            }
+            else{
+                $("#logUser").hide();
+
+            }  
+
         },
         error: function(errorMessage){
             console.log(errorMsg.message);

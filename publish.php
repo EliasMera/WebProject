@@ -7,6 +7,7 @@
 	<script src="JS/publish.js"></script>
     <script type="text/javascript" src="JS/menu.js"></script>
     <script type="text/javascript" src="JS/publish.js"></script>
+    
 </head>
 
 <body>
@@ -28,10 +29,10 @@
     		</ul>
     		<ul id=search>
     		<li><input type="text" id="searchBar" size="40" name="search" placeholder="Search.."></li>
+            <li> <span id="logUser"></span></li>
     		</ul>
 
-    		<span id="logUser">
-    		</span>
+
    
     		</div>
    	</header>

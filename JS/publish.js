@@ -38,7 +38,17 @@ $(document).ready(function (e) {
         contentType : "application/x-www-form-urlencoded",
         success : function(jsonResp){
             if(sess == 1){
-                $("#logUser").html(jsonResp.fName);
+                if(jsonResp.fName != null){
+                $("#logUser").html("Logged in as " + jsonResp.fName); 
+                $("#logUser").show();
+                console.log("sacda el nombreeeee");
+
+                
+            }
+            else{
+                    $("#logUser").hide();
+
+                }  
             }       
         },
         error: function(errorMessage){
