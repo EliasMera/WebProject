@@ -53,6 +53,9 @@
 	<div id="message"></div>
 
 	<table  id="filter" align="left">
+    <colgroup>
+            <col class="oce-first" />
+    </colgroup>
         <tr>
             <th>Tittle</th>
             <td>
