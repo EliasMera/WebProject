@@ -31,9 +31,6 @@
     		
             <li> <span id="logUser"></span></li>
     		</ul>
-
-
-   
     		</div>
    	</header>
 

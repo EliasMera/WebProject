@@ -6,12 +6,14 @@
 body
 {
     line-height: 1.6em;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 25px;
 }
 
 #filter
 {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    font-size: 12px;
+    font-size: 20px;
     margin: 45px;
     width: 480px;
     text-align: left;
@@ -165,10 +167,13 @@ h1
 }
 
 ul#menu {
+    align-content: center;
+    font-size: 100%;
     list-style: none;
     margin: 0;
     padding: 0;
-    background-color: #E1ECF0;
+    color: #e67300;
+    background-color: #404040;
     overflow: hidden;
     display:inline-block;
 }
@@ -179,9 +184,18 @@ ul#menu li{
 }
 
 ul#menu li:hover, ul#menu li.selected {
-    background-color: #999;
-    color: white;
+    
+    color: #b3b3b3;
     cursor: pointer;
+}
+
+#resDiv{
+    align-content: center;
+    position: absolute;
+    top: 90px;
+    left: 40%;
+    width: 850px;
+    height:530px;
 }
 
 ul#search{
@@ -189,7 +203,7 @@ ul#search{
     list-style: none;
     margin: 0;
     padding: 0;
-    background-color: #E1ECF0;
+    background-color: ;
     overflow: hidden;
     display:inline-block;
 
@@ -199,4 +213,3 @@ ul#search li{
     float: left;
     padding: 20px;
 }
-
