@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Ajax Image Upload Using PHP and jQuery</title>
+	<title>Publish new picture</title>
 	<link rel="stylesheet" href="CSS/upload.css" />
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -34,7 +34,7 @@
    	</header>
 
 	<div class="main">
-		<h1>Ajax Image Upload</h1><br/>
+		<h1>Image preview</h1><br/>
 		<hr>
 		<form id="uploadimage" action="" method="post" enctype="multipart/form-data">
 			<div id="image_preview"><img id="previewing" src="noimage.png" /></div>
@@ -46,7 +46,6 @@
 			</div>
 		</form>
 	</div>
-	<div id="message"></div>
 
 	<table  id="filter" align="left">
     <colgroup>
