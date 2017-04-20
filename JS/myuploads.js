@@ -20,7 +20,7 @@ $(document).ready(function () {
                     var mercado = (jsonResponse[i].mercado === "Y") ? " Market Near " : "";
                     var pool = (jsonResponse[i].pool === "Y") ? " Has a pool " : "";
 
-                	newHtml+= "<table>" + "<tr>" + "<th>" +"<img src='Images/" + jsonResponse[i].imagen + "' width='200' height='110'/>" + "</th>" +
+                	newHtml+= "<table>" + "<tr>" + "<th>" +"<img src='Images/" + jsonResponse[i].imagen + "' width='200' height='150'/>" + "</th>" +
                    	"<td>" + jsonResponse[i].titulo + "<br>" + jsonResponse[i].direccion + "<br>" +
                    	jsonResponse[i].descripcion + "<br>" + venta + " " + renta + "<br>" +
                    	jsonResponse[i].property + "<br>" + "$" +

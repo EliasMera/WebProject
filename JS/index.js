@@ -18,7 +18,7 @@ $(document).ready(function () {
                 	var emailOwner = "<a href='mailto:" + email + "?Subject=Housing%20Question' target='_top'>" + jsonResponse[i].owner + "</a>";
                 	var renta = (jsonResponse[i].renta === "Y") ? " For Rent " : "";
                 	var venta = (jsonResponse[i].venta === "Y") ? " For Sell " : "";
-                	newHtml+= "<table>" + "<tr>" + "<th>" +"<img src='Images/" + jsonResponse[i].imagen + "' width='200' height='110'/>" + "</th>" +
+                	newHtml+= "<table>" + "<tr>" + "<th>" +"<img src='Images/" + jsonResponse[i].imagen + "' width='200' height='150'/>" + "</th>" +
                    	"<td>" + jsonResponse[i].titulo + "<br>" + jsonResponse[i].direccion + "<br>" +
                    	jsonResponse[i].descripcion + "<br>" + venta + " " + renta + "<br>" +
                    	jsonResponse[i].property + "<br>" + "$" +
@@ -56,7 +56,7 @@ $(document).ready(function () {
                 	newHtml+= "<table>" + "<tr>" + "<th>" +"<img src='Images/" + jsonResponse[i].imagen + "' width='200' height='110'/>" + "</th>" +
                    	"<td>" + jsonResponse[i].titulo + "<br>" + jsonResponse[i].direccion + "<br>" +
                    	jsonResponse[i].descripcion + "<br>" + venta + " " + renta + "<br>" +
-                   	jsonResponse[i].property + "<br>" +
+                   	jsonResponse[i].property + "<br>" + "$" +
                    	jsonResponse[i].precio + "  Contact: " + emailOwner + "</td>" + "</tr>";
                 }
                 newHtml += "</table>";
@@ -105,7 +105,7 @@ $(document).ready(function () {
                 	newHtml+= "<table>" + "<tr>" + "<th>" +"<img src='Images/" + jsonResponse[i].imagen + "' width='200' height='110'/>" + "</th>" +
                    	"<td>" + jsonResponse[i].titulo + "<br>" + jsonResponse[i].direccion + "<br>" +
                    	jsonResponse[i].descripcion + "<br>" + venta + " " + renta + "<br>" +
-                   	jsonResponse[i].property + "<br>" +
+                   	jsonResponse[i].property + "<br>" + "$" +
                    	jsonResponse[i].precio + " Contact: " + emailOwner + "</td>" + "</tr>";
                 }
                 newHtml += "</table>";
@@ -142,7 +142,7 @@ $(document).ready(function () {
                     newHtml+= "<table>" + "<tr>" + "<th>" +"<img src='Images/" + jsonResponse[i].imagen + "' width='200' height='110'/>" + "</th>" +
                     "<td>" + jsonResponse[i].titulo + "<br>" + jsonResponse[i].direccion + "<br>" +
                     jsonResponse[i].descripcion + "<br>" + venta + " " + renta + "<br>" +
-                    jsonResponse[i].property + "<br>" +
+                    jsonResponse[i].property + "<br>" + "$" +
                     jsonResponse[i].precio + " Contact: " + emailOwner + "</td>" + "</tr>";
                 }
                 newHtml += "</table>";

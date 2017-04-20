@@ -48,7 +48,7 @@ body
 h1
 {
 	text-align: center;
-	background-color: #d0dafd;
+	background-color: #3399FF;
 	height: 70px;
 	color: rgb(95, 89, 89);
 	margin: 0 0 -29px 0;
@@ -71,7 +71,7 @@ h1
 }
 #filter{
 	position: absolute;
-	font-size: 30px;
+	font-size: 20px;
 	top: 100px;
 	left: 120px;
 	width: 300px;
@@ -96,7 +96,7 @@ h1
 	position: absolute;
 	bottom: 0px;
 	width: 414px;
-	background-color: #d0dafd;
+	background-color: #3399FF;
 	border-radius: 10px;
 }
 .submit{
@@ -119,8 +119,8 @@ h1
 #file {
 	color: red;
 	padding: 5px;
-	border: 5px solid #8BF1B0;
-	background-color: #8BF1B0;
+	border: 5px solid #99ccff;
+	background-color: #99ccff;
 	margin-top: 10px;
 	border-radius: 5px;
 	box-shadow: 0 0 15px #626F7E;

@@ -41,7 +41,7 @@ $(document).ready(function (e) {
                 if(jsonResp.fName != null){
                 $("#logUser").html("Logged in as " + jsonResp.fName); 
                 $("#logUser").show();
-                console.log("sacda el nombreeeee");
+                
 
                 
             }
@@ -98,9 +98,9 @@ $(document).ready(function (e) {
                         dataType: "json",
                         contentType: "application/x-www-form-urlencoded",
                         success: function(data){
-                            alert("Image succesfully Uploaded");
+                            alert("Listing succesfully created!");
                             window.location.replace("index.html").delay(800);
-                            console.log("2 llamada");
+                           
                         },
                         error: function(errorMessage){
                             console.log("failed");
